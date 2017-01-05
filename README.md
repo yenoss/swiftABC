@@ -34,9 +34,30 @@ Day1
 - for i in 0…4 0~4까지.
 - do while => repeat while 정도..
 
+Day2
+------------
+
+
 ###func..
 - 파라미터에 언더바를 먼저 쓰게되면 => 이는 파라미터명을 생략해도된다. on day 이런식으로 띄어쓰면 앞에 on을 파라미터명으로 쓰겟다.( greet(_ person:String, on day:String)->String{}...
 - 함수는 리턴값을 여러개로 사용할 수도 있다.
+- sumOf(numbers: Int…) -> int {} 와같이 많은 파라미터를 배열로 받을 수 있다.
+- nestedFunction을 사용할 수있다. 함수내에 함수가 가능하며 블락안에 variable은 공유된다.
+- 내부함수를 리터해 줄수도 있다. 그럴땐 최초 겉의 함수의 리턴타입이 내부함수의 파라미터,리턴타입과 같아야한다.(func test() -> ((Int)->(int){} 라면 내부에 func testt(number:Int) -> Int {} 같은 함수가 존재하여야 한다.
+- 내부 함수의 경우 조건이 들어갈 수도있다.
+- array.map은 클로저로 각 항목들을 반영한 결과물을 가진 새로운 배열을 반환한다.
+	
+     ~~~
+     //배열을 선언
+     let numbers = [1,2,3,4]
+     //map을통해 내부 블락함수로 돌린 결과의 배열을 리턴한다. 
+     let data = numbers.map({
+     	(number:Int) -> Int in
+     		return 3*number
+     })
+     ~~~
+
+
 
 
 
