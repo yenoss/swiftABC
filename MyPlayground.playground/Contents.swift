@@ -164,6 +164,72 @@ print(cals.1)
 print(cals.2)
 
 
+func sumOf(numbers: Int...) -> Int {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+sumOf(numbers: 10,20,40)
+
+func returnFitteen() -> Int {
+    var y = 10
+    func add(){
+        y += 5
+    }
+    add()
+    return y
+}
+
+returnFitteen()
+
+
+//리턴값이 조금이상하다..
+func makeIncremnter() -> ((Int) -> Int){
+    func addOne(number: Int) -> Int{
+        return 1+number
+    }
+    return addOne
+}
+
+//make Incrementer는  addOne이라는 함수를 리턴한다. 파라미터는 addOne의 파라미터를 따른다.
+var inicrement = makeIncremnter()
+inicrement(10)
+
+
+//함수를 조건으로 사용하여 만들어 사용할수있다. 
+//아래와같이 conditiondㅣ라는 함수를 포로프에서 돌려서 해당값이 트루이면 투르를 리턴하게 한다.
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+        for item in list {
+            if condition(item) {
+                return true
+            }
+        }
+        return false
+    }
+
+func lessthenTen(number:Int) -> Bool {
+    return number < 10
+}
+var numbers = [1,2,3,4]
+
+hasAnyMatches(list: numbers, condition: lessthenTen)
+
+
+//map은 클로저로 각 항목들을 반영한 결과물을 가진 새로운 배열을 반환한다.
+let data = numbers.map({
+    (number: Int) -> Int in
+    
+    return 3 * number
+})
+
+for d in data {
+    print(d)
+}
+
+
+
 
 
 
