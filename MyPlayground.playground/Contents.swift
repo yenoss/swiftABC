@@ -232,6 +232,102 @@ for d in data {
 
 
 
+var nums = [1,2,3,4,5]
+
+
+nums.map({
+    (nums:Int) -> Int in
+    return nums*3
+})
+
+nums.map({
+    num in 3*num
+})
+
+
+let sortedNumbers = nums.sorted { $0 > $1}
+
+
+let heelo: (String, String,String) -> String = { $1 + $0 + $2 + "good"}
+heelo("hi","nice",")))")
+
+
+class Shape {
+    var numberOfSides = 0
+    func simpleDescription() -> String {
+        return "a shape with \(numberOfSides)"
+    }
+}
+
+var shape  = Shape()
+
+shape.numberOfSides = 30
+
+shape.simpleDescription()
+
+
+class NamedShape {
+    var numberOfSides: Int = 9
+    var name: String
+    
+    init(name: String){
+        self.name = name
+    }
+    func simpleDesction() -> String {
+        return "return shpae is \(numberOfSides)"
+    }
+}
+
+var nameShape = NamedShape(name:"test")
+nameShape.simpleDesction()
+
+
+class Square: NamedShape{
+    var sideLength: Double
+    init(sideLength: Double, name: String){
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+    
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    
+    override func simpleDesction() -> String {
+        return "test"
+    }
+}
+
+var square = Square(sideLength: 4, name: "hi yo")
+square.area()
+square.simpleDesction()
+
+
+
+class EquilateralTriangle: NamedShape{
+    var sideLength: Double = 0.0
+    
+    init(sideLength: Double, name: String){
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 3
+    }
+    var permieter: Double{
+        get {
+            return 3.0 * sideLength
+        }
+        set {
+            sideLength = newValue / 3.0
+        }
+    }
+    
+}
+
+var eequ = EquilateralTriangle(sideLength: 3.1,name: "hiyo")
+print(eequ.permieter)
+eequ.permieter = 9.9
+print(eequ.sideLength)
 
 
 
