@@ -56,7 +56,34 @@ Day2
      		return 3*number
      })
      ~~~
+- 클로져에서 받는 인자는 $0 $1 ... 등과같이 간단히 받을 수 있다.
 
+Day 3
+------------
+###Class..
+
+- 클래스는 기본적으로 멤버변수, 그리고 함수로 이루어져있다.
+- init을 통해 생성자를 사용할 수 있다.
+
+	~~~
+	//와 같이 상속할 수있다.
+	class Square: NamedShape{}	
+	~~~
+	
+- super.init()을 통해 상속 클래스의 생성자를 만들수있고,
+- override 문구를 통해 부모 클래스의 함수를 오버라이딩 할 수 있다.
+- value에 get{}, set{} 을 넣을 수 있고 해당 데이터를 그냥 불러서 사용하면 get{}이 호출되고 설정하면 set{}이 설정된다.
+
+~~~
+var permieter: Double{
+        get {
+            return 3.0 * sideLength
+        }
+        set {
+            sideLength = newValue / 3.0
+        }
+    }
+~~~
 
 
 
