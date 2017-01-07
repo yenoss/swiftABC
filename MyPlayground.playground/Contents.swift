@@ -330,10 +330,199 @@ eequ.permieter = 9.9
 print(eequ.sideLength)
 
 
+class TriangleAndSquare {
+    var triangle: EquilateralTriangle{
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    init(size: Double, name: String){
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size,name: name)
+    }
+}
+
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "another test")
 
 
 
+enum Rank: Int {
+    case ace = 1
+    case two, three, four, five, six, seven, eight, nine, ten
+    case jack, queen, king
+    func simpleDiscription() -> String {
+        switch self{
+        case .ace:
+                return "acee"
+        case .jack:
+                return "jack"
+        case .queen:
+                return "queen"
+        case .king:
+                return "king"
+        default:
+                return String(self.rawValue)
+        }
+    }
+}
 
+let ace = Rank.ace
+
+let aceRawValue = ace.rawValue
+Rank.three.rawValue
+
+
+if let convertedRank = Rank(rawValue: 3){
+    convertedRank
+    let threeDescription = convertedRank.simpleDiscription()
+    print(threeDescription)
+}
+
+
+enum Suit{
+    case spades, hearts, diamonds, clubs
+    func simpleDiscription() -> String {
+        switch self {
+        case .spades:
+            return "spades"
+        case .hearts:
+            return "hearts"
+        case .diamonds:
+            return "diamond"
+        case .clubs:
+            return "clbus"
+        }
+    }
+}
+Suit.spades
+
+Suit.spades.simpleDiscription()
+
+
+enum ServerResponse {
+    case result(String,String)
+    case failure(String)
+}
+
+let success = ServerResponse.result("5:00","9:00")
+let failure = ServerResponse.failure("failt")
+
+switch failure {
+case let .result(sunrise, sunset):
+    print("Suriinse is \(sunrise) and suns et\(sunset)")
+    
+case let .failure(message):
+    print("faile \(message)")
+}
+
+struct Card{
+    var rank: Rank
+    var suit: Suit
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDiscription()) of \(suit.simpleDiscription())"
+    }
+    
+}
+//랭크와 수트를 설정해준다.
+let threeofSpades = Card(rank: .three,suit: .spades)
+
+let threeofSpadesDescription = threeofSpades.simpleDescription()
+
+
+protocol ExampleProtocol {
+    var simpleDescription: String { get }
+    mutating func adjust()
+}
+
+
+class SimpleClass: ExampleProtocol {
+    var simpleDescription: String = "A very Simple class"
+    var anotherProperty: Int = 69105
+    func adjust(){
+        simpleDescription += " now 100% adjusted"
+    }
+}
+
+var a = SimpleClass()
+
+a.adjust()
+let aDescription = a.simpleDescription
+
+struct SimpleStructure: ExampleProtocol {
+    var simpleDescription: String = "A Simple Structure"
+    mutating func adjust() {
+        simpleDescription += " (adjusted"
+    }
+}
+
+var b  = SimpleStructure()
+b.adjust()
+b.simpleDescription
+
+extension Int: ExampleProtocol {
+    var simpleDescription: String {
+        return "the number \(self)"
+    }
+    mutating func adjust() {
+        self += 42
+    }
+}
+print(7.simpleDescription)
+
+let protocolValue: ExampleProtocol = a
+print(protocolValue.simpleDescription)
+
+
+enum PrintError: Error {
+    case OutOfPaper
+    case noToner
+    case onFire
+}
+func send(job: Int, toPrinter printerName: String) throws -> String {
+    if printerName == "Never Has Toner"{
+        throw PrintError.noToner
+    }
+    return "job sent"
+}
+do{
+    let printerResponse = try send(job:1040,toPrinter:"Never Has Toner")
+}catch{
+    print(error)
+}
+
+
+
+let printerSuccess = try? send(job: 1884, toPrinter:"message")
+//let printerSuccess = try? send(job: 1884, toPrinter:"Never Has Toner")
+var fridgeIsOpen = false
+let fridgeContent = ["milk","egges","leftovers"]
+
+func fridgeContains(_ food: String) -> Bool {
+    fridgeIsOpen = true
+    //모든 코드가 실행된뒤 실행됨
+    defer {
+        print("differ")
+        fridgeIsOpen = false
+    }
+    let result = fridgeContent.contains(food)
+    return result
+}
+
+fridgeContains("banana")
+
+
+//item타입으로 배열을 만들고 계쏙 아이템 타입으로 append하겠다.
+func makeArray<Item>(repeating item: Item, numberOfTime: Int) -> [Item]{
+    
+    var rsult = [Item]()
+    
+    for _ in 0..<numberOfTime{
+        rsult.append(item)
+    }
+    return rsult
+}
+
+makeArray(repeating: "knock", numberOfTime: 4)
 
 
 

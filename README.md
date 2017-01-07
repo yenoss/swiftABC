@@ -85,6 +85,95 @@ var permieter: Double{
     }
 ~~~
 
+- setter의 newValue는 암시된 새로운 값을 의미한다.
+
+###Enum..
+
+~~~
+enum Rank: Int{
+	ace = 1
+}
+~~~
+
+- Rank.ace 는 ace를 반환한다.
+- rawValue를 이용해 숫자값을 받아올 수 있다.(Rank.ace.rawValue 는 1을 반환한다.)
+-  위 예제에서의 enum 은 생성자로 기본 Rank(rawVlaue:)를 가지고 해당 문자를 리턴한다. 
+- enum으로 case를 분류하여 해당 case일 경우 파라미터를 가지고 어떻게 보여줄 것인지 나타낸다.
+- struct는 구조체를 만든다. 클래스와 같지만 클래스는 참조하는 반면 구조체는 매번 복사하는 형태다
+
+###Protocol.. 
+
+- 프로토콜은 인터페이스다. 최소한 가저야할 속성 메소드등을 가진다.
+- struct는 열거형임으로 value의 타입등을 변경할 수 없다. 그러나 mutating keyword를 통하면 변경이 가능하다. 
+
+###Extension
+
+~~~
+extension Int: ExampleProtocol {
+    var simpleDescription: String {
+        return "the number \(self)"
+    }
+    mutating func adjust() {
+        self += 42
+    }
+}
+print(7.simpleDescription)
+~~~
+
+- 카테고리이다 위와같이 기본 타입 Int에 simpleDescription이라는 함수를 추가해서 사용한다.
+
+~~~
+let protocolValue: ExampleProtocol = a
+~~~
+
+- 위와같이 기존 클래스에 variable로 프로토콜을 추가 할 수 있다.
+
+###ErrorHandler
+
+~~~
+enum PrintError: Error {
+    case OutOfPaper
+    case noToner
+    case onFire
+}
+func send(job: Int, toPrinter printerName: String) throws -> String {
+    if printerName == "Never Has Toner"{
+        throw PrintError.noToner
+    }
+    return "job sent"
+}
+do{
+    let printerResponse = try send(job:1040,toPrinter:"Never Has Toner")
+}catch{
+    print(error)
+}
+~~~
+
+- 에러 케이스를 enum: Error로 작성할 수 있다. 
+- 해당 에러를 try catch로 잡을수 있고 throw를 통해 에러를 발생시킨다.
+- differ{} 는 함수내부의 모든 코드에서 가장 마지막에 실행된다. 
+
+
+###Generics
+
+~~~
+//item타입으로 배열을 만들고 계쏙 아이템 타입으로 append하겠다.
+func makeArray<Item>(repeating item: Item, numberOfTime: Int) -> [Item]{
+    
+    var rsult = [Item]()
+    
+    for _ in 0..<numberOfTime{
+        rsult.append(item)
+    }
+    return rsult
+}
+
+makeArray(repeating: "knock", numberOfTime: 4)
+
+~~~
+
+
+- 타입에 자유로운 제네릭 함수이다.
 
 
 
