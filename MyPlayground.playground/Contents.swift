@@ -50,7 +50,7 @@ emptyDict["hi"] = 20.0
 
 emptyDict
 
-// 
+//
 emptyArray = []
 emptyDict = [:]
 
@@ -152,8 +152,7 @@ greet("hiNoneData",on: "monday")
 
 
 func cal(scores: [Int]) ->(first: Int, second: Int, third: Int){
-    var last = scores[2]
-    
+    let last = scores[2]
     return (scores[0],scores[1],last)
 }
 let cals = cal(scores:[1,2,3])
@@ -198,16 +197,16 @@ var inicrement = makeIncremnter()
 inicrement(10)
 
 
-//함수를 조건으로 사용하여 만들어 사용할수있다. 
+//함수를 조건으로 사용하여 만들어 사용할수있다.
 //아래와같이 conditiondㅣ라는 함수를 포로프에서 돌려서 해당값이 트루이면 투르를 리턴하게 한다.
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
-        for item in list {
-            if condition(item) {
-                return true
-            }
+    for item in list {
+        if condition(item) {
+            return true
         }
-        return false
     }
+    return false
+}
 
 func lessthenTen(number:Int) -> Bool {
     return number < 10
@@ -353,15 +352,15 @@ enum Rank: Int {
     func simpleDiscription() -> String {
         switch self{
         case .ace:
-                return "acee"
+            return "acee"
         case .jack:
-                return "jack"
+            return "jack"
         case .queen:
-                return "queen"
+            return "queen"
         case .king:
-                return "king"
+            return "king"
         default:
-                return String(self.rawValue)
+            return String(self.rawValue)
         }
     }
 }
@@ -523,6 +522,83 @@ func makeArray<Item>(repeating item: Item, numberOfTime: Int) -> [Item]{
 }
 
 makeArray(repeating: "knock", numberOfTime: 4)
+
+
+
+//var text1: String = "hi"
+//var text2: String = nil
+
+func pizzaMachine (_ menu: String) -> String? {
+    if(menu == "super"){
+        return "super Pizza"
+    }else if(menu == "cheeze"){
+        return "super Cheeze"
+    }
+    
+    return nil
+}
+
+
+//let pizzaName: String? = pizzaMachine("supers")
+
+
+
+//if let pizzaName = pizzaMachine("super"){
+//    print("my pizza is \(pizzaName)")
+//}else{
+//    print("no pizza//null")
+//}
+
+//let pizzaNames = pizzaMachine("super")?.toSTring()
+//print(pizzaNames)
+
+
+
+//if let temp = pizzaName{
+//        print(temp)
+//}else{
+//        print("nill")
+//}
+
+
+//COnstants and Variable
+
+
+
+let valueDoube = 0.13455
+let valueInt = Int(valueDoube)
+print(valueInt)
+
+
+typealias AudioSample = UInt16
+var maxAmplitudeFound = AudioSample.min
+
+
+let http404Request = (404, "not Found")
+print(http404Request.0)
+print(http404Request.1)
+
+let (code,reason) = http404Request
+print(code)
+print(reason)
+
+let http200Stauts = (statusCode:200, description: "OK")
+print(http200Stauts.statusCode)
+print(http200Stauts.description)
+
+
+let possibleNumber = "123"
+
+if let convertedNumber = Int(possibleNumber){
+    print("convertedNumber= \(convertedNumber)")
+}else {
+    print("nope")
+}
+//let convertedNumber = Int(possibleNumber)
+
+
+
+
 
 
 
