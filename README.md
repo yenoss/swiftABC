@@ -87,6 +87,10 @@ var permieter: Double{
 
 - setter의 newValue는 암시된 새로운 값을 의미한다.
 
+Day4
+------------
+
+
 ###Enum..
 
 ~~~
@@ -106,7 +110,7 @@ enum Rank: Int{
 - 프로토콜은 인터페이스다. 최소한 가저야할 속성 메소드등을 가진다.
 - struct는 열거형임으로 value의 타입등을 변경할 수 없다. 그러나 mutating keyword를 통하면 변경이 가능하다. 
 
-###Extension
+###Extension..
 
 ~~~
 extension Int: ExampleProtocol {
@@ -128,7 +132,7 @@ let protocolValue: ExampleProtocol = a
 
 - 위와같이 기존 클래스에 variable로 프로토콜을 추가 할 수 있다.
 
-###ErrorHandler
+###ErrorHandler..
 
 ~~~
 enum PrintError: Error {
@@ -154,7 +158,7 @@ do{
 - differ{} 는 함수내부의 모든 코드에서 가장 마지막에 실행된다. 
 
 
-###Generics
+###Generics..
 
 ~~~
 //item타입으로 배열을 만들고 계쏙 아이템 타입으로 append하겠다.
@@ -172,8 +176,88 @@ makeArray(repeating: "knock", numberOfTime: 4)
 
 ~~~
 
-
 - 타입에 자유로운 제네릭 함수이다.
+
+
+Day5
+------------
+
+###TypeSafety..
+* 스위프트는 타입 세이프하다. 
+* 기본적으로 typeAnotation을 하지 않을 경우 해당 타입을 추론해 적합한 타입으로 명시한다. 
+* 왠만하면 타입을 명시해주는것이 좋겠다.
+
+###type Conversion..
+* 형변환은 아래와같이하다.
+
+~~~
+	let valueDouble = 0.123
+	let valueInt = Int(valueDouble)			
+~~~
+
+
+###Type Aliaces
+* 타입을 alias할수 있다. 
+
+~~~
+	typealias AudioSample = UInt16
+	var maxAmplitudeFound = AudioSample.min
+~~~
+
+
+### Tuple
+* 튜플형태를 제공해준다. 쓰기 매우 간단하네~
+
+~~~
+	let http404Request = (404, "not Found")
+	print(http404Request.0)
+	print(http404Request.1)
+
+	let (code,reason) = http404Request
+	print(code)
+	print(reason)
+
+	let http200Stauts = (statusCode:200, description: "OK")
+	print(http200Stauts.statusCode)
+	print(http200Stauts.description)	
+~~~
+
+
+###Optional 2
+* 옵셔널은 value가 애매할때 사용된다. 
+
+~~~
+let possibleNumber = "123"
+let convertedNumber = Int(possibleNumber)
+print(convertedNumber)
+~~~
+
+* convertedNumber는 int 가 아니라 optional(Int)가 된다. 의미는 해당 값이 `어떠한 int` 혹은 `nil`일 수 있다는 것이다.
+* 이유는 컴파일러입장에선 possibleNumber가 String값이 => Int로 변환되는곳에서 항상 해당 String이 숫자임을 보장 할 수 없는 상태이다. 즉 "sample" 같은 텍스트가 들어가게되면 Int변화에서 nil값이 도출되수도 있는 상태인것이다. 
+> 고로 매우 애매한 상태다, 이러한 상태가 존재해버리면 safe 하지 않다.
+
+* 위와같은 상황을 알려주고 해당 상황을 보다 safe하게 변환시켜줄 필요가 있다.
+
+###OptionalBinding
+* 옵셔널 바인드다. 해당 값이 nil값인지 체크하게 되어 보다 safe한 코드가 될 수 있다. 
+
+
+
+~~~
+let possibleNumber = "123"
+
+if let convertedNumber = Int(possibleNumber){
+    print("convertedNumber= \(convertedNumber)")
+}else {
+    print("nope")
+
+~~~
+
+* 항사 위와같은 코드를 통해 optional한 경우 binding해주는 것이 좋다.
+
+####Implicityly Unwrapped Optional
+* pass
+
 
 
 
