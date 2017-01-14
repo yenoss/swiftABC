@@ -597,6 +597,66 @@ if let convertedNumber = Int(possibleNumber){
 //let convertedNumber = Int(possibleNumber)
 
 
+//errHandling
+
+func canThrowAnError() throws {
+}
+
+
+//day6
+//멀티플
+let(x,y) = (1,2)
+
+print(x)
+print(y)
+
+
+-9 % 4
+
+let three = 3
+
+print(-three)
+
+(1, "zebra") < (2,"apple")
+
+(3, "cpple") < (3, "bird")
+
+//var c = 3
+
+//c != nil ? a! : b
+
+let defaultColorName = "red"
+var userDefinedColorName: String?
+var colorNametoSUer = userDefinedColorName ?? defaultColorName
+//만약 userDefaultColorName이 null이면 red로 셋한다.
+
+
+for index in 1...4 {
+    print("hi \(index)")
+}
+
+for index in 1..<3 {
+    print("2hi \(index)")
+}
+
+var emptyString = ""
+
+if emptyString.isEmpty {
+    print("is empty")
+}
+
+let catcharactesr: [Character] =  ["C","a","t"]
+
+let catString = String(catcharactesr)
+
+var stringHi = "hi"
+stringHi.append("test")
+
+
+
+
+
+
 
 
 
