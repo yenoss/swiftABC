@@ -7,7 +7,11 @@ Apple "The Swift Programming Language (Swift 3.0.1)" 언어 문서를 공부합�
 
 #####목표
 * Daily Commit.
+
 * 언어 기본사용에 익숙해지기.
+
+* 언어적 기본사용에 익숙해지기.
+
 
 
 Day1
@@ -257,7 +261,6 @@ if let convertedNumber = Int(possibleNumber){
 ####Implicityly Unwrapped Optional
 * pass
 
-
 Day6
 ---
 
@@ -288,6 +291,7 @@ var colorNametoSUer = userDefinedColorName ?? defaultColorName
 
 * 위와같이 초기화 할 수 있고 isEmpty 로 비어있는지 확인이 가능하다.
 * 
+
 
 
 

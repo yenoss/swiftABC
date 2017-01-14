@@ -597,6 +597,7 @@ if let convertedNumber = Int(possibleNumber){
 //let convertedNumber = Int(possibleNumber)
 
 
+
 //errHandling
 
 func canThrowAnError() throws {
@@ -651,18 +652,3 @@ let catString = String(catcharactesr)
 
 var stringHi = "hi"
 stringHi.append("test")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
