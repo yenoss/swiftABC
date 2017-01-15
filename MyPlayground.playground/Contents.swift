@@ -652,3 +652,41 @@ let catString = String(catcharactesr)
 
 var stringHi = "hi"
 stringHi.append("test")
+
+
+//array
+
+var someInt  = [Int]()
+
+print("someInt sis type Int , \(someInt.count)")
+
+
+someInt.append(3)
+
+for data in someInt {
+    print(data)
+}
+
+var threeDoubles = Array(repeating: 0.0, count: 3)
+for data in threeDoubles {
+    print(data)
+}
+
+var shppingList = [String]()
+
+var shppoingListWithBrackets: [String] = ["saousage","carrot"]
+
+shoppingList += ["pizza","banan","test","hh"]
+
+shoppingList[4...6] = ["a","b","c"]
+
+for data in shoppingList{
+    print(data)
+}
+
+
+for (index,value) in shoppingList.enumerated() {
+    print("index = \(index) value =\(value)")
+}
+
+

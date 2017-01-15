@@ -290,7 +290,71 @@ var colorNametoSUer = userDefinedColorName ?? defaultColorName
 ~~~ 
 
 * 위와같이 초기화 할 수 있고 isEmpty 로 비어있는지 확인이 가능하다.
-* 
+
+
+Day7
+---
+###CollectionType
+
+* 3가지 주요한 콜랙션이 있다. 
+* array,set,dictionary이다. 
+* 기본적으로 콜렉션은 mutable하다.
+
+#####array
+* [Int]() 로 초기화한다. 
+* 이제 위의 array는 Int가 들어갈것이라 생각되어진다. 
+* [] 로 선언하여 다시 초기화 할 수있다.
+
+~~~
+	var threeDoubles = Array(repeating:0.0,count:3)
+~~~
+
+
+* repeat,count 초기화로 연속적 초기화가 가능하다
+* array 끼리의 + 연산은 두 어레이를 이어서 연결해준다. (원소끼리 더하는것은 아니다)
+
+* bracket을 통해 초기화할 수 있다
+
+~~~
+	var shppoingListWithBrackets: [String] = ["saousage","carrot"]
+
+~~~
+
+* swift는 똑똑해서 
+
+~~~
+	var shoppingList = ["eggs","milk"]
+~~~
+
+* 와같이 하여도 두개의 타입을 보고 String이라고 추론한다.
+* count,isEmpty같은 함수들을 내장한다. 
+
+~~~
+	shoppingList += ["pizza","banan"]
+~~~
+
+* += 는 뒤에 리스트를 추가로 붙여준다.
+* append 함수를 대신하여 쓸 수 있다.
+
+~~~
+	shoppingList[4...6] = ["a","b","c"]
+~~~
+
+* 위와같이 범위로 한방에 바꿀 수 있다.
+* insert,remove등 다양한 함수 존재.
+
+~~~
+	for (index,value) in shoppingList.enumerated() {
+    print("index = \(index) value =\(value)")
+    }
+
+~~~
+
+* enumberated를 통해 반복문을 쓸 수 있다.
+
+
+
+
 
 
 
