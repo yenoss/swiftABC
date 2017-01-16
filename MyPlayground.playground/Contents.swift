@@ -690,3 +690,46 @@ for (index,value) in shoppingList.enumerated() {
 }
 
 
+
+var arrayTest: [String] = ["apple","banana"]
+var arrayTest2 = ["a","b"]
+
+
+var ar1 = [String]()
+var ar11 = ["a","b"]
+var ar12: [String] = ["a","b"]
+
+
+//Set
+
+var letters = Set<Character>()
+letters.insert("a")
+
+
+var favoriteGenres: Set<String> = ["Rock","Classic","hiphop"]
+
+var favoriteGenress: Set = ["Rock","clasic"]
+
+// Dictionary
+
+var numberOfIntegers = [Int:String]()
+numberOfIntegers[10] = "hi"
+
+var airports: [String: String] = ["aaa":"asiana","bbb":"koreanAir"]
+
+for (portCode,portName) in airports {
+    print(portCode)
+    print(portName)
+}
+
+for portCode in airports.keys{
+    print(portCode)
+}
+
+let airportCode = [String](airports.keys)
+
+
+
+
+
+

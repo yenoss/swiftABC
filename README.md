@@ -14,7 +14,7 @@ Apple "The Swift Programming Language (Swift 3.0.1)" 언어 문서를 공부합�
 
 
 
-Day1
+Day 1
 ------------
 
 <br>
@@ -90,7 +90,7 @@ var permieter: Double{
 
 - setter의 newValue는 암시된 새로운 값을 의미한다.
 
-Day4
+Day 4
 ------------
 
 
@@ -182,7 +182,7 @@ makeArray(repeating: "knock", numberOfTime: 4)
 - 타입에 자유로운 제네릭 함수이다.
 
 
-Day5
+Day 5
 ------------
 
 ###TypeSafety..
@@ -261,7 +261,7 @@ if let convertedNumber = Int(possibleNumber){
 ####Implicityly Unwrapped Optional
 * pass
 
-Day6
+Day 6
 ---
 
 ### basic operators
@@ -292,7 +292,7 @@ var colorNametoSUer = userDefinedColorName ?? defaultColorName
 * 위와같이 초기화 할 수 있고 isEmpty 로 비어있는지 확인이 가능하다.
 
 
-Day7
+Day 7
 ---
 ###CollectionType
 
@@ -351,6 +351,78 @@ Day7
 ~~~
 
 * enumberated를 통해 반복문을 쓸 수 있다.
+
+
+day 8
+---
+####Set
+* (hashble)모든 swift의 기본타입(String,Int..) 는 해시블이 디폴트이다. 그래서 벨류나 키값으로 이용될 수 있다.
+
+~~~
+	var letters = Set<Character>()
+	var favoriteGenres: Set<String> = ["Rock","Classic","hiphop"]
+~~~
+* 위와 같이 초기화 할 수 있다.
+* 그러나. swift는 타입을 추론함으로
+
+~~~
+	var favoriteGenress: Set = ["Rock","clasic"]
+~~~
+
+* 이렇게 쓸 수도 있다.
+* insert,count,isEmpty등의 함수가 지원된다.
+* 그외의 set의 특성을가진 union,insersection,substracting,symmetricDifference등이 제공된다.
+
+####Dictionary
+
+* 각 value는 고유의 key와 맵핑된다.
+
+~~~
+	var numberOfIntegers = [Int:String]()
+numberOfIntegers[10] = "hi"
+~~~
+
+* 위와같이 초기화하고 입력한다.
+
+~~~
+	var airports: [String: String] = ["aaa":"asiana","bbb":"koreanAir"]
+~~~
+
+* 당연 키페어로 리터럴하게사용가능.
+
+~~~
+	var airports = ["aaa":"asiana","bbb":"koreanAir"]
+~~~
+
+* 어레이,셋과마찬가지로 위와같이 입력할 수 있다. 모두 같은 타입이기에 가능한것이다. 
+
+~~~
+	for (portCode,portName) in airports {
+    	print(portCode)
+	    print(portName)
+	}
+~~~
+
+* 위와같이 포루프를 사용할 수 있다.
+
+~~~
+	for portCode in airports.keys{
+	    print(portCode)
+	}
+	for portCode in airports.values{
+    	print(portCode)
+	}
+~~~
+
+* 키와 벨류도 손쉽게 추출가능하다
+
+~~~
+	let airportCode = [String](airports.keys)
+~~~
+
+* 키값만, 벨류값만 arr로 추출할 수 있다.
+
+
 
 
 
