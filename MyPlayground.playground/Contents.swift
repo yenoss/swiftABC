@@ -729,7 +729,65 @@ for portCode in airports.keys{
 let airportCode = [String](airports.keys)
 
 
+//func
+
+func greets(person:String) -> String {
+    return "hi \(person)"
+}
+
+greets(person: "john")
+
+func returnMultiple(array: [Int]) -> (first: Int,second: Int){
+    
+    
+    return (array[0],array[1])
+}
+
+var array = [1,2,3,]
+
+returnMultiple(array: array).0
 
 
+func returnMultiples(array: [Int]) -> (first: Int,second: Int)?{
+    
+    if array.isEmpty { return nil }
+    var val1 = Int()
+    var val2 = Int()
+    
+    if array.count<3 {
+        val1 = 10
+        val2 = 20
+    }
+    return (val1,val2)
+}
+
+var arrayss = [1,2,3,4,5]
+
+//print(returnMultiples(array: arrayss))
+
+if let value = returnMultiples(array: arrayss) {
+    print("good not null \(value)")
+}else {
+    print("null optional")
+}
+
+
+func ssum(_ first: Int, b sec: Int = 12) -> Int {
+    
+    return first + sec
+
+}
+print(ssum( 10, b: 20))
+
+
+func sumsArray(_ numbers: Int ...) -> Int {
+    var sums = 0;
+    for number in numbers{
+        sums += number
+    }
+    return sums
+}
+
+print(sumsArray(1,2,3,4,5))
 
 

@@ -423,6 +423,58 @@ numberOfIntegers[10] = "hi"
 * 키값만, 벨류값만 arr로 추출할 수 있다.
 
 
+day 9
+====
+
+####Function
+
+* func이란 키워드를 앞에 달아 사용 할 수 있다. 
+* 리턴 타입을 -> 를 통해 정해준다.
+* 함수 기입방식이다르지 사용한방법은 일반언어와 크게 다르지 않다.
+
+
+~~~
+	func returnMultiple(array: [Int]) -> (first: Int,second: Int){
+    
+    
+	    return (array[0],array[1])
+	}
+
+	var array = [1,2,3,]
+
+	returnMultiple(array: array).0
+~~~
+
+* 다만 특이하게 리턴을 여러개 받을 수 있다.
+* 함수에서 nil이 떨어질 수 있을경우 리턴값에 ? 를붙여 옵셔널일수있다는 것을 명시해주고 처리해줘야한다.
+
+~~~
+	func ssum(a first: Int, b sec: Int) -> Int 
+~~~
+
+* 위와같이 함수호출시 파라미터명과 실제 함수내부에서 쓰는 파라미터를 설정해 줄 수 있다.
+* 처음 파라미터는 _ 를 이용하여 안 받을 수 있다.
+
+~~~
+	func ssum(_ first: Int, b sec: Int = 12) -> Int {
+~~~
+
+* default value를 설정할 수 있다.값이 없을 경우 default값이 들어간다.
+
+~~~
+	func sumsArray(_ numbers: Int ...) -> Int 
+	print(sumsArray(1,2,3,4,5))
+~~~
+
+* variable을 ... 으로 순차대로 배열로 받고 이를 array와 같이 사용할 수 있다.
+
+
+
+
+
+
+
+
 
 
 
