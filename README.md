@@ -468,6 +468,94 @@ day 9
 
 * variable을 ... 으로 순차대로 배열로 받고 이를 array와 같이 사용할 수 있다.
 
+day 10
+=====
+
+functiontype
+----
+
+* 함수타입이란, 함수 파라미터, 그리고 리턴값에 대한 타입 갯수에 관한 이야기다.
+
+~~~
+	func addTwoInts(_ a: Int, _ b: Int) -> Int 
+	func multiplyTwoInts(_ a: Int, _ b: Int) -> Int 
+~~~
+
+* 위의 두함수의 함수타입은 2개의 Int를 파리미터로 받고 Int타입으로 리턴함을 의미한다. 
+
+usingFunctionType
+---
+~~~
+	var mathFunction: (Int,Int) -> Int = addTwoInts
+~~~
+
+* mathFunction은 인트두개를 파라미터로받고 인트를 리턴한다는 타입을 가지고 addTowInts함수를 부른다 는것을 의미한다.
+* 쉽게 함수의 타입을 일반 Int,String과 같이 선언한다고 생각하면 된다.
+
+~~~
+	print("\(mathFunction(2,3))")
+~~~
+
+* 위의결과는 2+3 인 5가 나오게된다.
+
+~~~
+	mathFunction = multiplyTwoInts
+~~~
+
+* 위와 같이 선언하면 해당 variable(mathFunction)이 2*3 6의 결과를 출력되게된다.
+
+
+* 이 functionType은 함수의 파라미터로 사용될 수 있다. 
+
+~~~
+	func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b : Int) {
+    	print("result => \(mathFunction(a,b))")
+	}
+
+	printMathResult(mathFunction, 5, 3)
+~~~
+
+* (Int,Int) -> Int 타입의 변수가 첫번째 파라미터로 들어가면 된다. 
+* 그리고 함수 내부에서 해당 타입을 가진 함수의 값을 콜 한다. 
+* 위에서 우리가 mathFunction을 multiplyTwoInts라고 선언하였음으로 해당 함수가 콜되어 5*3 인 15의 값이 출력되게된다.
+
+* 함수타입은 리턴 타입에도 사용될 수 있다.
+
+~~~
+	var	currentValue = 3 
+	func stepForward(_ input:Int) -> Int {
+   	 	return input + 1
+	}
+	func stepBackward(_ input:Int) -> Int {
+    	return input - 1
+	}
+	func choseStepFucntion(backword: Bool) -> (Int) -> Int {
+    	return backword ? stepBackward : stepForward
+	}
+	var currentValue = 3
+	//현재값이 0보다 클경우 true가 됨을 stepBackword를 호출하고 input+1을 하고 해당 int를 리턴 한다
+	let MoveNearerTozer = choseStepFucntion(backword: currentValue > 0 )
+print(MoveNearerTozer(3))
+
+~~~
+
+* chooseStepFucntion의 파라미터와 리턴값들은 첫번째로 불리언값을 파라미터로가지고 두번째로 steopbackward,stepForward에 들어갈 파라미터를 받게된다. 그리고 가장 마지막 최종리턴될 타입을 나타낸다. 
+* 일단 MoveNearerTozer는 중간 stepBackword,steopForward 파라미터값을 제외하고 최초 choseTepFunction에서 사용될 backword만을 받아 조건만을 정해준다. 여기서는 currentVlaue값이 0보다 크냐? 를 불리언으로 넘겨주게된다.
+* 이후 MoveNearerTozer를 호출할경우 stepBackwarod or step Forward에  파라미터로 들어갈 값을 넣어준다. 
+* 그렇게되면 
+	*  앞에 currentVlaue값의 비교를 통해 stepBackword, stepForward어느 함수로 갈지 정해지고 
+	* MoveNearerTozer(3)의 3의값이 정해진 함수(stepBackword or stepForward)로 넘어가게되고
+	* 해당 함수에서의 리턴값을 다시 반환하게 되는 것이다.
+	
+* 현재상황에선 currentVlaue가 3이고 0보다 큼으로 true 이며
+* stepBackward를 호출하고 파라미터에(input)에 3이 들어가게되어 3-1 이 리턴되어 최종 2의값이 MoveNearerTozer 반환되어진다.
+
+
+
+
+
+
+
 
 
 

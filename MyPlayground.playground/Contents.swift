@@ -790,4 +790,51 @@ func sumsArray(_ numbers: Int ...) -> Int {
 
 print(sumsArray(1,2,3,4,5))
 
+//functionType
+
+func addTwoInts (_ a:Int, _ b:Int) -> Int{
+    return a + b
+}
+func multiplyTwoInts (_ a:Int, _ b:Int) -> Int{
+    return a * b
+}
+
+var mathFunction: (Int,Int) -> Int = addTwoInts
+
+print("result: \(mathFunction(2,3))")
+
+mathFunction = multiplyTwoInts
+
+print("result: \(mathFunction(2,3))")
+
+
+func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b : Int) {
+    print("result => \(mathFunction(a,b))")
+}
+
+printMathResult(mathFunction, 5, 3)
+
+
+func stepForward(_ input:Int) -> Int {
+    return input + 1
+}
+func stepBackword(_ input:Int) -> Int {
+    
+    return input - 1
+}
+
+func choseStepFucntion(backword: Bool) -> (Int) -> Int {
+    return backword ? stepBackword : stepForward
+}
+
+var currentValue = 3
+//현재값이 0보다 클경우 true가 됨을 stepBackword를 호출하고 input+1을 하고 해당 int를 리턴 한다
+let MoveNearerTozer = choseStepFucntion(backword: currentValue > 0 )
+
+print(MoveNearerTozer(3))
+
+
+
+
+
 
